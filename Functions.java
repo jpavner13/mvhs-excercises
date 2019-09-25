@@ -3,8 +3,9 @@ public class Functions{
 
         //function     inputs >>>>>> box >>>>>> Outputs
 
-        doStuff(3, 5);      // calls function
-        doStuff(4, 6);
+        int x = doStuff(3, 5);      // calls function
+
+        System.out.println(doStuff(3, 5) + doStuff(4, 6));
 
     }
 
@@ -13,7 +14,7 @@ public class Functions{
 
     public static int doStuff(int a, int b){
         int result = a + b ;
-        return result;
+        return result;      // end function imediately
     }
 
 }
