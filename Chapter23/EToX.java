@@ -3,8 +3,9 @@ import java.lang.Math ;
 
 public class EToX{
     public static void main(String[] args){
-        int N = 0 ;
-        double answer = 0.0 ;
+        double N = 0 ;
+        double answer = 1.0 ;
+        double term = 1 ;
 
         Scanner scan = new Scanner(System.in);
 
@@ -12,14 +13,15 @@ public class EToX{
         N = scan.nextInt();
 
         int i = 1;
-        double previousTerm = 1 ;
 
-        while(previousTerm > 0.000000000001){
-            double term = previousTerm * (N / i);
+        while(term > 1.0E-12){
+
+            term *= N/i++;
             answer += term ;
-            previousTerm = term;
-            i++ ;
-            System.out.println("n: " + i + "\tterm: " + term + "\tsum: " + answer);
+            System.out.println("n: " + (i - 1) + "\tterm: " + term + "\tsum: " + answer);
         }
+
+        System.out.println("My e^x: " + answer);
+        System.out.println("Real e^x: " + Math.exp(N));
     }
 }
