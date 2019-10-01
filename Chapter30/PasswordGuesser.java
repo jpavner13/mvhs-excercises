@@ -15,8 +15,20 @@ public class PasswordGuesser{
         int tries = 0;
 
         while(!correct){
+            tries += 1 ;
             String current = "";
-            current += chara.charAt(random.nextInt(chara.length));
+
+            int i = 0;
+            while(i <= 5){
+            i += 1 ;
+                if (current.equals(userin)){
+                    correct = true ;
+                    password = current;
+                }
+            char x = (char)(rand.nextInt(26) + 'a');
+            current = current + x ;
+            // System.out.println(current);
+            }
         }
 
         System.out.println("Your password is: " + password);
