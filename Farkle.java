@@ -11,20 +11,20 @@ public class Farkle {
 
         int currentplayer = WhoGoesFirst(player1, player2);
 
-        String roundPlayer = ""
+        String roundPlayer = "" ;
 
         if (currentplayer == 1){
-            roundplayer = player1 ;
+            roundPlayer = player1 ;
         } else {
-            roundplayer = player2 ;
+            roundPlayer = player2 ;
         }
 
         int player1score = 0 ;
         int player2score = 0 ;
 
-        while (player1score < 100 || player2score < 100){
-            PlayRound()
-        }
+        int roundsPlayed = 0 ;
+
+        PlayRound(player1, player1score, player2score);
     }
 
     public static String playersignin(){
@@ -62,12 +62,186 @@ public class Farkle {
 
     public static int RollDie(){
         Random randroll = new Random();
-        int roll = randroll.nextInt(6);
+        int roll = randroll.nextInt(6) + 1;
         
         return roll ;
     }
 
-    public static int PlayRound(String player){
+    public static int PlayRound(String player, int player1score, int player2score){
+        int totalScore = 0 ;
 
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Roll the dice! Press enter to roll.");
+        String useless = scan.nextLine();
+
+        int diceLeft = 6 ;
+
+        while(diceLeft != 0){
+
+            int roll1 = 0 ;
+            int roll2 = 0 ;
+            int roll3 = 0 ;
+            int roll4 = 0 ;
+            int roll5 = 0 ;
+            int roll6 = 0 ;
+
+            if (diceLeft == 6){ 
+                roll1 = RollDie();
+                roll2 = RollDie();
+                roll3 = RollDie();
+                roll4 = RollDie();
+                roll5 = RollDie();
+                roll6 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll2 == 5 || roll2 == 1){
+                    totalScore = totalScore + roll2;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll3 == 5 || roll3 == 1){
+                    totalScore = totalScore + roll3;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll4 == 5 || roll4 == 1){
+                    totalScore = totalScore + roll4;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll5 == 5 || roll5 == 1){
+                    totalScore = totalScore + roll5;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll6 == 5 || roll6 == 1){
+                    totalScore = totalScore + roll6;
+                    diceLeft = diceLeft - 1 ;
+                }
+            }
+
+            if (diceLeft == 5){ 
+                roll1 = RollDie();
+                roll2 = RollDie();
+                roll3 = RollDie();
+                roll4 = RollDie();
+                roll5 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll2 == 5 || roll2 == 1){
+                    totalScore = totalScore + roll2;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll3 == 5 || roll3 == 1){
+                    totalScore = totalScore + roll3;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll4 == 5 || roll4 == 1){
+                    totalScore = totalScore + roll4;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll5 == 5 || roll5 == 1){
+                    totalScore = totalScore + roll5;
+                    diceLeft = diceLeft - 1 ;
+                }
+            }
+
+            if (diceLeft == 4){ 
+                roll1 = RollDie();
+                roll2 = RollDie();
+                roll3 = RollDie();
+                roll4 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll2 == 5 || roll2 == 1){
+                    totalScore = totalScore + roll2;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll3 == 5 || roll3 == 1){
+                    totalScore = totalScore + roll3;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll4 == 5 || roll4 == 1){
+                    totalScore = totalScore + roll4;
+                    diceLeft = diceLeft - 1 ;
+                }
+            }
+
+            if (diceLeft == 3){ 
+                roll1 = RollDie();
+                roll2 = RollDie();
+                roll3 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll2 == 5 || roll2 == 1){
+                    totalScore = totalScore + roll2;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll3 == 5 || roll3 == 1){
+                    totalScore = totalScore + roll3;
+                    diceLeft = diceLeft - 1 ;
+                }
+            }
+
+            if (diceLeft == 2){ 
+                roll1 = RollDie();
+                roll2 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+                if (roll2 == 5 || roll2 == 1){
+                    totalScore = totalScore + roll2;
+                    diceLeft = diceLeft - 1 ;
+                }
+            }
+
+            if (diceLeft == 1){ 
+                roll1 = RollDie();
+
+                if (roll1 == 5 || roll1 == 1){
+                    totalScore = totalScore + roll1;
+                    diceLeft = diceLeft - 1 ;
+                }
+
+            }
+            System.out.println(roll1);
+            System.out.println(roll2);
+            System.out.println(roll3);
+            System.out.println(roll4);
+            System.out.println(roll5);
+            System.out.println(roll6);
+            System.out.println("diceleft " + diceLeft);
+        }
+
+        System.out.println(diceLeft);
+        System.out.println(totalScore);
+
+        return totalScore;
     }
 }
