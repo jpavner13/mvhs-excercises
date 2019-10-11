@@ -1,6 +1,6 @@
 import java.util.* ;
 
-public class Farkle {
+public class Farkle2 {
 
     public static void main(String[] args){
 
@@ -63,11 +63,61 @@ public class Farkle {
     public static int RollDie(){
         Random randroll = new Random();
         int roll = randroll.nextInt(6) + 1;
-        
         return roll ;
     }
 
+    public static boolean isFarkle(int rolls[]){
+        Boolean isIt = true;
+        for(int i = 0; i < rolls.length; i++){
+            if(rolls[i] == 5 || rolls[i] == 1){
+                isIt = false ;
+            } 
+        }
+        return isIt ;
+    }
+
     public static int PlayRound(String player, int player1score, int player2score){
-        // Use Arrays
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Roll the dice. Press Enter to roll.");
+        String useless = scan.nextLine();
+
+        int finalRoundScore = 0 ;
+
+        int diceLeft = 6;
+        int noScore = 0;
+
+        int rolls[] = new int[6];
+        for(int i = 0; i < rolls.length; i++){
+            rolls[i] = RollDie();
+        }
+
+        if(isFarkle(rolls)){
+            for(int i = 0; i < rolls.length; i++){
+                System.out.println("Farkle!");
+                System.out.println("Roll = " + rolls[i]);
+            }
+        }
+
+        for(int i = 0; i < rolls.length; i++){
+            if(rolls[i] == 5 || rolls[i] == 1){
+                if(rolls[i] == 5){
+                    finalRoundScore += 500;
+                    diceLeft-- ;
+                    rolls[i] = -1 ;
+                } else {
+                    finalRoundScore += 100;
+                    diceLeft-- ;
+                    rolls[i] = -1 ;
+                }
+            } else {
+                noScore++ ;
+            }
+
+            System.out.println("Roll: " + rolls[i]);     
+            System.out.println("Score: " + finalRoundScore);  
+            System.out.println("");  
+        }
+        return(1);
+
     }
 }
