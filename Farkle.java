@@ -4,7 +4,7 @@ public class Farkle {
 
     public static void main(String[] args){
 
-        System.out.println("Welcome to farkle! Players sign in!");
+        System.out.println("Welcome to farkle! Players sign in sdjfsdjf!");
 
         String player1 = playersignin();
         String player2 = playersignin();
